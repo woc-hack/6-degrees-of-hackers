@@ -11,8 +11,7 @@ awk -F, '{for (i=2; i<=NF; i++) print $i","$1}' |
 sed 's|^.*github\.com/||' |
 awk -F, '{print $2","$1}' |
 awk -F/ '{print $1"_"$2}' >data/projects.csv;
-
-# too slow
+# too slow / not used
 while read -r line; do
     i=$(echo "$line" |
         cut -d, -f1);
@@ -61,3 +60,28 @@ cut -d\; -f1 <data/P2c.p |
 uniq -c |
 awk '{print $2";"$1}' \
 >data/P2n.p;
+# i2c
+LC_ALL=C LANG=C join -t\; -1 2 -2 1 -o 1.1,2.2 \
+    <(cut -d\; -f2-3 <datasets/p2iP.p | 
+        ~/lookup/lsort 50G -t\; -k2,2 |
+        uniq) \
+    <(~/lookup/lsort 50G -t\; -k1,1 <datasets/P2c.p)  \
+>datasets/i2c.p;
+~/lookup/lsort 100G <datasets/i2c.p |
+uniq |
+~/lookup/lsort 100G -t\; -k1,1 \
+>datasets/i2c.s;
+# i2se
+cut -d, -f2,5,6 <datasets/githublinksanddatesV2.csv |
+~/lookup/lsort 20G -t, -k1,1 |
+uniq |
+sed 's|,|;|g' \
+>datasets/i2se.s;
+# i2sec
+LC_ALL=C LANG=C join -t\; \
+    datasets/i2se.s \
+    datasets/i2c.s \
+>datasets/i2sec.s;
+~/lookup/lsort 100G -t\; -k4,4 <datasets/i2sec.s \
+>datasets/i2sec.cs;    
+
