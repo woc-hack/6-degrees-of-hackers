@@ -23,17 +23,21 @@ Namely, are there highly connected participants and if so who are they? Addition
 *Please provide an overview of your research approach and workflow, including how you used World of Code to achieve your research goals or answer your research questions here.*
 
 To explore this, we gathered the DevPost data and extracted the projects list. Having this list, we used p2P World of Code mappings
-tp get deforked projects list and from there, using P2c mappings, we retrieved all the commits in these projects.
+to get deforked projects list and from there, using P2c mappings, we retrieved all the commits in these projects.
 After that, we used c2dat maps to get the author name and the timestamps associated with each commit.
 Having the start and end time of each hackathon project from DevPost dataset, we filtered out those commits that
-were not in the hackathon time period. Doing this, we have the list of all relevant commits and responsible authors for the hackathon projects.
-We used this data to build WOC Authorship graph, i.e. the graph of commit authors on hackathon github repositories during the time of the hackathon with the edges signifying shared projects. 
+were not in the hackathon time period. Doing this, we found the list of all relevant commits and responsible authors for the hackathon projects.
+We used this data to build WOC Authorship graph, i.e. the graph of commit authors on hackathon github repositories during the time of the hackathon with the edges signifying shared projects.  
+
 Additionally, we created a graph from the hackathon project participants according to devpost equally connected via shared projects.
 
 ### 3. Preliminary Findings
 *Please describe your preliminary findings here.*
 
-We gathered about 86000 projects on the first pass filtering, after filtering for projects with at least a single commit we were left with about 68000 projects.
+We gathered about 86000 projects on the first pass filtering, after filtering for projects with at least a single commit we were left with about 68000 projects.  
+Using WoC, we found about 100 million unique commits in these projects. Yet, pairing these commits with projects indexed based on the DevPost datset, we ended up with 340 million commit-project pairs, meaning that many hackathon projects share same commits. 
+Nevertheless, after filtering out the commits that were not done in the hackathon project time period, we ended up with about 4.6 million commit-project pairs consisting of 2.7 million unique commits. Based on these findings, less than 3% of the commits in these projects were made during the hackathon. 
+Based on WoC authorIDs, these commits were done by 190 thousand authors that using a2A maps was reduced to 160 thousand unique authors.
 
 ### 4. Challenges
 *Please describe difficulties you encountered during the project related to World of Code. If possible, please also make suggestions on how you think they could be solved.*
