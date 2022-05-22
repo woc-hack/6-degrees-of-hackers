@@ -22,7 +22,7 @@ Namely, are there highly connected participants and if so who are they? Addition
 ### 2. Methodology
 *Please provide an overview of your research approach and workflow, including how you used World of Code to achieve your research goals or answer your research questions here.*
 
-To explore this, we gathered the DevPost data and extracted the projects list. Having this list, we used p2P World of Code mappings
+We used World of Code[1] infrustructure to explore open source software repositories. To explore our idea, we gathered the DevPost data and extracted the projects list. Having this list, we used p2P World of Code[2] mappings
 to get deforked projects list and from there, using P2c mappings, we retrieved all the commits in these projects.
 After that, we used c2dat maps to get the author name and the timestamps associated with each commit.
 Having the start and end time of each hackathon project from DevPost dataset, we filtered out those commits that
@@ -37,7 +37,7 @@ Additionally, we created a graph from the hackathon project participants accordi
 We gathered about 86000 projects on the first pass filtering, after filtering for projects with at least a single commit we were left with about 68000 projects.  
 Using WoC, we found about 100 million unique commits in these projects. Yet, pairing these commits with projects indexed based on the DevPost datset, we ended up with 340 million commit-project pairs, meaning that many hackathon projects share same commits. 
 Nevertheless, after filtering out the commits that were not done in the hackathon project time period, we ended up with about 4.6 million commit-project pairs consisting of 2.7 million unique commits. Based on these findings, less than 3% of the commits in these projects were made during the hackathon. 
-Based on WoC authorIDs, these commits were done by 190 thousand authors that using a2A maps was reduced to 160 thousand unique authors.
+Based on WoC authorIDs, these commits were done by 190 thousand authors that using a2A maps[3] was reduced to 160 thousand unique authors.
 
 ### 4. Challenges
 *Please describe difficulties you encountered during the project related to World of Code. If possible, please also make suggestions on how you think they could be solved.*
@@ -52,4 +52,13 @@ Working specifically with authors highlighted and amplified the issue of author 
 
 ### References
 *Please add a list of the references you used during the text here. If you did not use any references, you can omit this section.*
+
+[1] Y. Ma, C. Bogart, S. Amreen, R. Zaretzki, and A. Mockus, “World of code: An infrastructure for mining the universe of open source vcs data,”
+in 2019 IEEE/ACM 16th International Conference on Mining Software Repositories (MSR), 2019, pp. 143–154.  
+
+[2] ] Audris Mockus, Diomidis Spinellis, Zoe Kotti, and Gabriel John Dusing. 2020. A complete set of related git repositories identified via community detection approaches based on shared commits. In Proceedings of the 17th International Conference on Mining Software Repositories. 513–517.
+
+[3] T. Fry, T. Dey, A. Karnauch, and A. Mockus, “A dataset and an approach for identity resolution of 38 million author ids extracted from
+2b git commits,” in Proceedings of the 17th International Conference on Mining Software Repositories, ser. MSR ’20. New York, NY, USA:
+Association for Computing Machinery, 2020, p. 518–522.
 
