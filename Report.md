@@ -22,7 +22,12 @@ Namely, are there highly connected participants and if so who are they? Addition
 ### 2. Methodology
 *Please provide an overview of your research approach and workflow, including how you used World of Code to achieve your research goals or answer your research questions here.*
 
-To explore this, we gathered the WOC/github Authorship graph, i.e. the graph of commit authors on hackathon github repositories during the time of the hackathon with the edges signifying shared projects. 
+To explore this, we gathered the DevPost data and extracted the projects list. Having this list, we used p2P World of Code mappings
+tp get deforked projects list and from there, using P2c mappings, we retrieved all the commits in these projects.
+After that, we used c2dat maps to get the author name and the timestamps associated with each commit.
+Having the start and end time of each hackathon project from DevPost dataset, we filtered out those commits that
+were not in the hackathon time period. Doing this, we have the list of all relevant commits and responsible authors for the hackathon projects.
+We used this data to build WOC Authorship graph, i.e. the graph of commit authors on hackathon github repositories during the time of the hackathon with the edges signifying shared projects. 
 Additionally, we created a graph from the hackathon project participants according to devpost equally connected via shared projects.
 
 ### 3. Preliminary Findings
